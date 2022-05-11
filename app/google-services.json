@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "158336314529",
+    "firebase_url": "https://tutorex-87d31-default-rtdb.firebaseio.com",
+    "project_id": "tutorex-87d31",
+    "storage_bucket": "tutorex-87d31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158336314529:android:2ce45a468867a9be83d4e0",
+        "android_client_info": {
+          "package_name": "com.example.chatapp_cloud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158336314529-502mg8bl19jgnpt2eh8c7viepvineh08.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3Tb-QpZlpwfDYaOnjLl3BBHQSFJ1ds7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158336314529-502mg8bl19jgnpt2eh8c7viepvineh08.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158336314529:android:8a2942039c4c032f83d4e0",
+        "android_client_info": {
+          "package_name": "com.yrabdelrhmn.tutorex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158336314529-502mg8bl19jgnpt2eh8c7viepvineh08.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3Tb-QpZlpwfDYaOnjLl3BBHQSFJ1ds7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158336314529-502mg8bl19jgnpt2eh8c7viepvineh08.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
