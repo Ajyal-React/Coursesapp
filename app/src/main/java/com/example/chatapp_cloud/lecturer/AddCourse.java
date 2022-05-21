@@ -10,15 +10,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.chatapp_cloud.R;
+import com.example.chatapp_cloud.activites.MainActivity;
+import com.example.chatapp_cloud.adapter.UserCourseAdapter;
+import com.example.chatapp_cloud.models.CourseInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.yrabdelrhmn.tutorex.R;
-import com.yrabdelrhmn.tutorex.adapter.UserCourseAdapter;
-import com.yrabdelrhmn.tutorex.model.CourseInfo;
-import com.yrabdelrhmn.tutorex.student.MainActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -73,7 +73,7 @@ public class AddCourse extends AppCompatActivity {
                       
                        Toast.makeText(AddCourse.this, "Added!", Toast.LENGTH_SHORT).show();
 
-                        startActivity(new Intent(AddCourse.this,MainActivity.class));
+                        startActivity(new Intent(AddCourse.this, MainActivity.class));
                     }
 
                     @Override

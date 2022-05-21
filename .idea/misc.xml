@@ -14,6 +14,7 @@
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/drawable/background_sent_message.xml" value="0.2255" />
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/drawable/background_splashscreen.xml" value="0.2255" />
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/drawable/ic_action_search.xml" value="0.2145" />
+        <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/drawable/ic_baseline_analytics_24.xml" value="0.2555" />
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/drawable/ic_logout.xml" value="0.2255" />
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/drawable/ic_notification.xml" value="0.134" />
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/drawable/ic_send.xml" value="0.2145" />
@@ -62,8 +63,10 @@
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/layout/item_container_user.xml" value="0.2269021739130435" />
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/layout/lect_courses_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/layout/my_courses_layout.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/layout/notification_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/layout/row.xml" value="0.176" />
         <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/menu/action.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/lenovo/Desktop/cloud_activite/Chatappsend/app/src/main/res/menu/lecturer_nav.xml" value="0.23854166666666668" />
       </map>
     </option>
   </component>

@@ -10,8 +10,12 @@ public class CourseInfo {
         private boolean join = false;
         private int isJoined = 0;
 
+    public CourseInfo(String courseimage, String coursename, String coursetype, String courseid) {
 
-        public int getIsJoined() {
+    }
+
+
+    public int getIsJoined() {
             return isJoined;
         }
 

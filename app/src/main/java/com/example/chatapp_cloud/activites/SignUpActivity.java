@@ -66,7 +66,7 @@ public class SignUpActivity extends AppCompatActivity {
         mFirestore = FirebaseFirestore.getInstance();
         loading( true );
         HashMap<String, Object> user = new HashMap<>();
-        user.put( Constants.KEY_FIRST_NAME, binding.firstname.getText().toString() );
+        user.put( Constants.KEY_FIRST_NAME, binding.username.getText().toString() );
         user.put( Constants.KEY_EMAIL, binding.inputemail.getText().toString() );
         user.put( Constants.KEY_password, binding.inputpassword.getText().toString() );
         user.put( Constants.KEY_IMAGE, encodedImage );
@@ -76,7 +76,7 @@ public class SignUpActivity extends AppCompatActivity {
                     loading( false );
                     prefernceManager.putBoolean( Constants.KEY_IS_SIGNED_IN, true );
                     prefernceManager.putString( Constants.KEY_USER_ID, documentReference.getId() );
-                    prefernceManager.putString( Constants.KEY_FIRST_NAME, binding.firstname.getText().toString() );
+                    prefernceManager.putString( Constants.KEY_FIRST_NAME, binding.username.getText().toString() );
                     prefernceManager.putString( Constants.KEY_IMAGE, encodedImage );
                     Intent intent = new Intent( getApplicationContext(), ChatmainActivity.class );
                     intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
@@ -123,19 +123,20 @@ public class SignUpActivity extends AppCompatActivity {
         if (encodedImage == null) {
             showToast( "select profile image" );
             return false;
-        } else if (binding.firstname.getText().toString().trim().isEmpty()) {
+        } else if (binding.username.getText().toString().trim().isEmpty()) {
             showToast( "Enter First Name" );
             return false;
-        } else if (binding.Middlename.getText().toString().trim().isEmpty()) {
-            showToast( "Enter middle Name" );
-            return false;
-        } else if (binding.familyname.getText().toString().trim().isEmpty()) {
-            showToast( "Enter Family Name" );
-            return false;
-        } else if (binding.address.getText().toString().trim().isEmpty()) {
-            showToast( "Enter Address" );
-            return false;
         }
+//        else if (binding.Middlename.getText().toString().trim().isEmpty()) {
+//            showToast( "Enter middle Name" );
+//            return false;
+//        } else if (binding.familyname.getText().toString().trim().isEmpty()) {
+//            showToast( "Enter Family Name" );
+//            return false;
+//        } else if (binding.address.getText().toString().trim().isEmpty()) {
+//            showToast( "Enter Address" );
+//            return false;
+//        }
         else if (binding.mobilenum.getText().toString().trim().isEmpty()) {
             showToast( "Enter Address" );
             return false;
@@ -153,13 +154,16 @@ public class SignUpActivity extends AppCompatActivity {
         } else if (binding.inputpassword.getText().toString().trim().isEmpty()) {
             showToast( "Enter password" );
             return false;
-        } else if (binding.inputconfirmpassword.getText().toString().trim().isEmpty()) {
-            showToast( "confirm your password" );
-            return false;
-        } else if (!binding.inputpassword.getText().toString().equals( binding.inputconfirmpassword.getText().toString() )) {
-            showToast( "password & confirm password must be same" );
-            return false;
-        } else {
+        }
+//        else if (binding.inputconfirmpassword.getText().toString().trim().isEmpty()) {
+//            showToast( "confirm your password" );
+//            return false;
+//        }
+//        else if (!binding.inputpassword.getText().toString().equals( binding.inputconfirmpassword.getText().toString() )) {
+//            showToast( "password & confirm password must be same" );
+//            return false;
+//        }
+        else {
             return true;
         }
     }

@@ -7,11 +7,12 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.chatapp_cloud.R;
+import com.example.chatapp_cloud.lecturer.lecturer_fragment.Analytics;
+import com.example.chatapp_cloud.lecturer.lecturer_fragment.LecturerCourses;
+import com.example.chatapp_cloud.lecturer.lecturer_fragment.LecturerProfile;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.yrabdelrhmn.tutorex.R;
-import com.yrabdelrhmn.tutorex.lecturer.lecturer_fragment.Analytics;
-import com.yrabdelrhmn.tutorex.lecturer.lecturer_fragment.LecturerCourses;
-import com.yrabdelrhmn.tutorex.lecturer.lecturer_fragment.LecturerProfile;
+
 
 public class HomePage extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     BottomNavigationView bottomNavigationView;
