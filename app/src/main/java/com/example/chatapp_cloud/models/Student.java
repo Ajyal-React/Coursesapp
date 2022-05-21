@@ -5,6 +5,10 @@ import java.io.Serializable;
 public class Student implements Serializable {
     public String Firstname,Birthday,MobileNum,image,email,token,id;
 
+    public Student() {
+
+    }
+
     public String getFirstname() {
         return Firstname;
     }

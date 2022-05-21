@@ -90,10 +90,10 @@ public class UserCourseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             update = (ImageView) itemView.findViewById(R.id.update);
             delete = (ImageView) itemView.findViewById(R.id.delete);
 
-                if (viewType == 1){
-                    showCourse = (Button) itemView.findViewById(R.id.view_btn);
-                    left = (Button) itemView.findViewById(R.id.leftCourse_btn);
-                }
+//                if (viewType == 1){
+//                    showCourse = (Button) itemView.findViewById(R.id.viewCourse_btn);
+//                    left = (Button) itemView.findViewById(R.id.leftCourse_btn);
+//                }
 
         }
 

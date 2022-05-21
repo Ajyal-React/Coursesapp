@@ -57,11 +57,11 @@ public class StudentActivity extends BaseActivity implements StudentListener {
                             }
                             Student student = new Student();
                             student.Firstname= queryDocumentSnapshot.getString( Constants.KEY_FIRST_NAME );
-                            student.Middlename=queryDocumentSnapshot.getString( Constants.KEY_MIDDLE_NAME );
-                            student.Familyname=queryDocumentSnapshot.getString( Constants.KEY_FAMILY_NAME );
-                            student.Address=queryDocumentSnapshot.getString( Constants.KEY_ADDRESS );
+//                            student.Middlename=queryDocumentSnapshot.getString( Constants.KEY_MIDDLE_NAME );
+//                            student.Familyname=queryDocumentSnapshot.getString( Constants.KEY_FAMILY_NAME );
+//                            student.Address=queryDocumentSnapshot.getString( Constants.KEY_ADDRESS );
                             student.MobileNum=queryDocumentSnapshot.getString( Constants.MOBILE_NUMBER );
-                            student.Middlename=queryDocumentSnapshot.getString( Constants.KEY_BIRTHDATE );
+//                            student.Middlename=queryDocumentSnapshot.getString( Constants.KEY_BIRTHDATE );
                             student.email = queryDocumentSnapshot.getString( Constants.KEY_EMAIL );
                             student.image = queryDocumentSnapshot.getString( Constants.KEY_IMAGE );
                             student.token = queryDocumentSnapshot.getString( Constants.KEY_FCM_TOKEN);

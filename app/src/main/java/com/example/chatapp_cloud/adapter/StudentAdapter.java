@@ -54,10 +54,10 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.studentV
         }
         void setUserData(Student student){
             binding.textName.setText(student.Firstname);
-            binding.textName.setText(student.Middlename);
-            binding.textName.setText(student.Familyname);
+//            binding.textName.setText(student.Middlename);
+//            binding.textName.setText(student.Familyname);
             binding.textName.setText(student.MobileNum);
-            binding.textName.setText(student.Address);
+//            binding.textName.setText(student.Address);
             binding.textEmail.setText(student.email );
             binding.imageprofile.setImageBitmap(getUserImage( student.image ));
             binding.getRoot().setOnClickListener( v -> studentListener.onStudentClicked(student) );
