@@ -30,7 +30,6 @@ import java.util.ArrayList;
 
 
 public class UserCourseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     private final Context mContext;
     private final ArrayList<CourseInfo> mContentList;
     FirebaseDatabase firebaseDatabase;
@@ -90,85 +89,85 @@ public class UserCourseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             update = (ImageView) itemView.findViewById(R.id.update);
             delete = (ImageView) itemView.findViewById(R.id.delete);
 
-//                if (viewType == 1){
-//                    showCourse = (Button) itemView.findViewById(R.id.viewCourse_btn);
-//                    left = (Button) itemView.findViewById(R.id.leftCourse_btn);
-//                }
+            if (viewType == 1){
+                showCourse = (Button) itemView.findViewById(R.id.viewCourse_btn);
+                left = (Button) itemView.findViewById(R.id.leftCourse_btn);
+            }
 
         }
 
     }
 
     @Override
-    public void onBindViewHolder(@NotNull RecyclerView.ViewHolder mainHolder, int position) {
+    public void onBindViewHolder(@NotNull RecyclerView.ViewHolder mainHolder, @SuppressLint("RecyclerView") int position) {
         mViewHolder holder = (mViewHolder) mainHolder;
         int viewType = mContentList.get(position).getIsJoined();
         final CourseInfo model = mContentList.get(position);
 
 
-            String img = model.getCourseimage();
+        String img = model.getCourseimage();
 
-            // this code to display images
-            if (img != null && !img.isEmpty()) {
-                Glide.with(mContext).load(img).fitCenter().into(holder.courseImage);
-                model.setCourseimage(img);
-            }
+        // this code to display images
+        if (img != null && !img.isEmpty()) {
+            Glide.with(mContext).load(img).fitCenter().into(holder.courseImage);
+            model.setCourseimage(img);
+        }
 
-            holder.courseName.setText(model.getCourseName());
+        holder.courseName.setText(model.getCourseName());
 
-            holder.courseType.setText(model.getCourseType());
-            model.setCourseId(model.getCourseName());
-
-
-
-            if (viewType == 0) {
-                Button joinBtn = holder.join;
-                //  holder.join.setVisibility(joinBtn.clic);
-                joinBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        DatabaseReference mycoursesRef = FirebaseDatabase.getInstance().getReference().child("mycourses");
-                        DatabaseReference coursesRef = FirebaseDatabase.getInstance().getReference().child("courses");
-                        mycoursesRef.addValueEventListener(new ValueEventListener() {
-                            @SuppressLint("SetTextI18n")
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                long coursesCount = snapshot.getChildrenCount();
-
-                                if (coursesCount < 5) {
-                                    joinBtn.setText("added");
-                                    String id = mContentList.get(position).getCourseId();
-                                    String name = mContentList.get(position).getCourseName();
-                                    String image = mContentList.get(position).getCourseimage();
-                                    String type = mContentList.get(position).getCourseType();
-                                    int join = 1;
-
-                                    CourseInfo courseInfo = new CourseInfo(image, name, type, id, join);
-
-                                    courseInfo.setCourseimage(image);
-                                    courseInfo.setCourseName(name);
-                                    courseInfo.setCourseType(type);
-                                    courseInfo.setIsJoined(join);
-
-                                    mycoursesRef.child(id).setValue(courseInfo);
-
-                                    Toast.makeText(mContext, "MyCourse Added Successfully!", Toast.LENGTH_SHORT).show();
+        holder.courseType.setText(model.getCourseType());
+        model.setCourseId(model.getCourseName());
 
 
-                                } else {
-                                    Toast.makeText(mContext, "You have exceeded the limit of courses!", Toast.LENGTH_SHORT).show();
-                                }
+
+        if (viewType == 0) {
+            Button joinBtn = holder.join;
+            //  holder.join.setVisibility(joinBtn.clic);
+            joinBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DatabaseReference mycoursesRef = FirebaseDatabase.getInstance().getReference().child("mycourses");
+                    DatabaseReference coursesRef = FirebaseDatabase.getInstance().getReference().child("courses");
+                    mycoursesRef.addValueEventListener(new ValueEventListener() {
+                        @SuppressLint("SetTextI18n")
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            long coursesCount = snapshot.getChildrenCount();
+
+                            if (coursesCount < 5) {
+                                joinBtn.setText("added");
+                                String id = mContentList.get(position).getCourseId();
+                                String name = mContentList.get(position).getCourseName();
+                                String image = mContentList.get(position).getCourseimage();
+                                String type = mContentList.get(position).getCourseType();
+                                int join = 1;
+
+                                CourseInfo courseInfo = new CourseInfo(image, name, type, id, join);
+
+                                courseInfo.setCourseimage(image);
+                                courseInfo.setCourseName(name);
+                                courseInfo.setCourseType(type);
+                                courseInfo.setIsJoined(join);
+
+                                mycoursesRef.child(id).setValue(courseInfo);
+
+                                Toast.makeText(mContext, "MyCourse Added Successfully!", Toast.LENGTH_SHORT).show();
 
 
+                            } else {
+                                Toast.makeText(mContext, "You have exceeded the limit of courses!", Toast.LENGTH_SHORT).show();
                             }
 
-                            @Override
-                            public void onCancelled(@NotNull DatabaseError error) {
 
-                            }
-                        });
-                    }
-                });
+                        }
+
+                        @Override
+                        public void onCancelled(@NotNull DatabaseError error) {
+
+                        }
+                    });
+                }
+            });
 
 
 //
@@ -208,7 +207,6 @@ public class UserCourseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public int getItemCount() {
         return mContentList.size();
     }
-
 
 
     }
