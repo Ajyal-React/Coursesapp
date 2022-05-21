@@ -59,17 +59,17 @@ public class AddCourse extends AppCompatActivity {
                 String coursetype = courseType.getText().toString();
                 String courseimage = courseImage.getText().toString();
                 courseid = coursename;
-                CourseInfo courseInfo = new CourseInfo(courseimage,coursename,coursetype,courseid);
-                courseInfo.setCourseimage(courseimage);
-                courseInfo.setCourseName(coursename);
-                courseInfo.setCourseType(coursetype);
-                DatabaseReference mCourse = databaseReference.child("courses").child(courseid);
+//                CourseInfo courseInfo = new CourseInfo(courseimage,coursename,coursetype,courseid);
+//                courseInfo.setCourseimage(courseimage);
+//                courseInfo.setCourseName(coursename);
+//                courseInfo.setCourseType(coursetype);
+//                DatabaseReference mCourse = databaseReference.child("courses").child(courseid);
 
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NotNull DataSnapshot snapshot)
                     {
-                        databaseReference.child(courseid).setValue(courseInfo);
+//                        databaseReference.child(courseid).setValue(courseInfo);
 
                         Toast.makeText(AddCourse.this, "Course Added Successfully!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(AddCourse.this, ChatmainActivity.class));
