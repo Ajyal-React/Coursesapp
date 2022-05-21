@@ -1,6 +1,5 @@
 package com.example.chatapp_cloud.lecturer;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -73,7 +72,7 @@ public class AddCourse extends AppCompatActivity {
                       
                        Toast.makeText(AddCourse.this, "Added!", Toast.LENGTH_SHORT).show();
 
-                        startActivity(new Intent(AddCourse.this,HomePage.class));
+//                        startActivity(new Intent(AddCourse.this,HomePage.class));
                     }
 
                     @Override
