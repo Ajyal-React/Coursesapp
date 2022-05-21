@@ -8,14 +8,11 @@
     android:overScrollMode="never"
     android:padding="@dimen/_24sdp"
     android:scrollbars="none"
-    tools:context=".activites.SignUpActivity"
-    >
-
+    tools:context=".activites.SignUpActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_gravity="center"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
@@ -51,57 +48,54 @@
                 />
 
         </FrameLayout>
-        <RadioGroup
-            android:id="@+id/RGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageprofile">
-
-            <RadioButton
-                android:id="@+id/radio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Lecturer"
-
-                android:textColor="#154"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageprofile" />
-
-            <RadioButton
-                android:id="@+id/radio2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Student"
-                android:textColor="#154"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/radio1" />
-        </RadioGroup>
-
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/firstname"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/background_input"
-            android:hint="User name"
+            android:hint="First Name"
+            android:backgroundTint="@color/secondary_text"
             android:imeOptions="actionNext"
+            android:textAlignment="center"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:textAlignment="center"
-            android:backgroundTint="@color/secondary_text"
             android:paddingStart="@dimen/_16sdp"
             android:textColor="@color/text"
             android:textSize="@dimen/_13ssp"
             />
-
+        <EditText
+            android:id="@+id/Middlename"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/background_input"
+            android:hint="Middle Name"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:backgroundTint="@color/secondary_text"
+            android:textAlignment="center"
+            android:paddingStart="@dimen/_16sdp"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_13ssp"
+            />
+        <EditText
+            android:id="@+id/familyname"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/background_input"
+            android:hint="Family Name"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:backgroundTint="@color/secondary_text"
+            android:textAlignment="center"
+            android:paddingStart="@dimen/_16sdp"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_13ssp"
+            />
 
         <EditText
             android:id="@+id/brithdate"
@@ -119,8 +113,22 @@
             android:textColor="@color/text"
             android:textSize="@dimen/_13ssp"
             />
-
-
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/background_input"
+            android:hint="Address"
+            android:textAlignment="center"
+            android:imeOptions="actionNext"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:backgroundTint="@color/secondary_text"
+            android:paddingStart="@dimen/_16sdp"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_13ssp"
+            />
         <EditText
             android:id="@+id/mobilenum"
             android:layout_width="match_parent"
@@ -170,7 +178,23 @@
             android:textSize="@dimen/_13ssp"
             android:textAlignment="center"
             />
+        <EditText
+            android:id="@+id/inputconfirmpassword"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/background_input"
+            android:hint="confirm password"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:paddingStart="@dimen/_16sdp"
+            android:textColor="@color/text"
+            android:textSize="@dimen/_13ssp"
+            android:backgroundTint="@color/secondary_text"
+            android:textAlignment="center"
 
+            />
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -206,7 +230,4 @@
             android:textStyle="bold"
             />
     </LinearLayout>
-
-
-
 </ScrollView>

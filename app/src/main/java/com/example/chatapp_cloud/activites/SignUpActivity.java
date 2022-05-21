@@ -13,15 +13,11 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chatapp_cloud.databinding.ActivitySignUpBinding;
 import com.example.chatapp_cloud.utilites.Constants;
 import com.example.chatapp_cloud.utilites.prefernceManager;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -34,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
     private ActivitySignUpBinding binding;
     private prefernceManager prefernceManager;
     private String encodedImage;
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
     FirebaseFirestore mFirestore;
 
     @Override
@@ -45,19 +41,14 @@ public class SignUpActivity extends AppCompatActivity {
         prefernceManager = new prefernceManager( getApplicationContext() );
         mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
-//        if (mAuth.getCurrentUser() != null){
-//            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-//            finish();
-//        }
         setListeners();
     }
 
     private void setListeners() {
         binding.textsignIn.setOnClickListener( v -> onBackPressed() );
         binding.buttonSignup.setOnClickListener( v -> {
-
             if (isValidsignUpDetails()) {
-                perforAuth();
+                signUp();
             }
         } );
         binding.layoutImage.setOnClickListener( v -> {
@@ -72,141 +63,32 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void signUp() {
-        loading(true);
         mFirestore = FirebaseFirestore.getInstance();
+        loading( true );
         HashMap<String, Object> user = new HashMap<>();
-        user.put(Constants.KEY_FIRST_NAME, binding.username.getText().toString());
-        user.put(Constants.KEY_EMAIL, binding.inputemail.getText().toString());
-        user.put(Constants.KEY_password, binding.inputpassword.getText().toString());
-        user.put(Constants.KEY_IMAGE, encodedImage);
-//        user.put(Constants.KEY_MIDDLE_NAME, binding.Middlename.getText().toString());
-//        user.put(Constants.KEY_FAMILY_NAME, binding.familyname.getText().toString());
-//        user.put(Constants.KEY_ADDRESS, binding.address.getText().toString());
-        user.put(Constants.MOBILE_NUMBER, binding.mobilenum.getText().toString());
+        user.put( Constants.KEY_FIRST_NAME, binding.firstname.getText().toString() );
+        user.put( Constants.KEY_EMAIL, binding.inputemail.getText().toString() );
+        user.put( Constants.KEY_password, binding.inputpassword.getText().toString() );
+        user.put( Constants.KEY_IMAGE, encodedImage );
+        mFirestore.collection( Constants.KEY_COLLECTION_USERS )
+                .add( user )
+                .addOnSuccessListener( documentReference -> {
+                    loading( false );
+                    prefernceManager.putBoolean( Constants.KEY_IS_SIGNED_IN, true );
+                    prefernceManager.putString( Constants.KEY_USER_ID, documentReference.getId() );
+                    prefernceManager.putString( Constants.KEY_FIRST_NAME, binding.firstname.getText().toString() );
+                    prefernceManager.putString( Constants.KEY_IMAGE, encodedImage );
+                    Intent intent = new Intent( getApplicationContext(), ChatmainActivity.class );
+                    intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+                    startActivity( intent );
 
-//        String email = binding.inputemail.getText().toString().trim();
-//        String pasword = binding.inputpassword.getText().toString().trim();
-//        mAuth.createUserWithEmailAndPassword(email,pasword).addOnCompleteListener(task -> {
-//            if (task.isSuccessful()) {
-//                Toast.makeText(SignUpActivity.this, "User Created", Toast.LENGTH_LONG).show();
-//        mFirestore.collection(Constants.KEY_COLLECTION_USERS)
-//                .add(user)
-//                .addOnSuccessListener(documentReference -> {
-//                    loading(false);
-//                    prefernceManager.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
-//                    prefernceManager.putString(Constants.KEY_USER_ID, documentReference.getId());
-//                    prefernceManager.putString(Constants.KEY_FIRST_NAME, binding.firstname.getText().toString());
-//                    prefernceManager.putString(Constants.KEY_IMAGE, encodedImage);
-//                    prefernceManager.putString(Constants.KEY_MIDDLE_NAME, binding.Middlename.getText().toString());
-//                    prefernceManager.putString(Constants.KEY_FAMILY_NAME, binding.familyname.getText().toString());
-//                    prefernceManager.putString(Constants.KEY_ADDRESS, binding.address.getText().toString());
-//                    prefernceManager.putString(Constants.MOBILE_NUMBER, binding.mobilenum.getText().toString());
-//                    Intent intent = new Intent(getApplicationContext(), ChatmainActivity.class);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                    startActivity(intent);
-//                })
-//                .addOnFailureListener(exception -> {
-//                    loading(false);
-//                    showToast(exception.getMessage());
-//                });
-//        // }
-//            }else {
-//                Toast.makeText(SignUpActivity.this,"Error"+task.getException().getMessage(),Toast.LENGTH_LONG);
-////                binding.progressBar.setVisibility(View.GONE);
-//            }
-
-//        });
-
-//        mFirestore.collection( Constants.KEY_COLLECTION_USERS )
-//                .add( user )
-//                .addOnSuccessListener( documentReference -> {
-//                    loading( false );
-//                    prefernceManager.putBoolean( Constants.KEY_IS_SIGNED_IN, true );
-//                    prefernceManager.putString( Constants.KEY_USER_ID, documentReference.getId() );
-//                    prefernceManager.putString( Constants.KEY_FIRST_NAME, binding.firstname.getText().toString() );
-//                    prefernceManager.putString( Constants.KEY_IMAGE, encodedImage );
-//                    prefernceManager.putString(Constants.KEY_MIDDLE_NAME,binding.Middlename.getText().toString());
-//                    prefernceManager.putString(Constants.KEY_FAMILY_NAME,binding.familyname.getText().toString());
-//                    prefernceManager.putString(Constants.KEY_ADDRESS,binding.address.getText().toString());
-//                    prefernceManager.putString(Constants.MOBILE_NUMBER,binding.mobilenum.getText().toString());
-//                    Intent intent = new Intent( getApplicationContext(), ChatmainActivity.class );
-//                    intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
-//                    startActivity( intent );
-//                } )
-//                .addOnFailureListener( exception -> {
-//                    loading( false );
-//                    showToast( exception.getMessage() );
-//                } );
+                } )
+                .addOnFailureListener( exception -> {
+                    loading( false );
+                    showToast( exception.getMessage() );
+                } );
     }
-    private void perforAuth() {
-        Constants.KEY_password = binding.inputpassword.getText().toString();
-        Constants.KEY_EMAIL =binding.inputemail.getText().toString();
-//        Constants.KEY_ADDRESS = binding.address.getText().toString();
-        Constants.KEY_FIRST_NAME = binding.username.getText().toString();
-//        Constants.KEY_FAMILY_NAME = binding.familyname.getText().toString();
-//        Constants.KEY_MIDDLE_NAME = binding.Middlename.getText().toString();
 
-
-        // Constants.KEY_IMAGE = binding.imageprofile.getImageBitmap();
-
-        loading(true);
-        mFirestore = FirebaseFirestore.getInstance();
-        HashMap<String, Object> user = new HashMap<>();
-        user.put(Constants.KEY_FIRST_NAME, binding.username.getText().toString());
-        user.put(Constants.KEY_EMAIL, binding.inputemail.getText().toString());
-        user.put(Constants.KEY_password, binding.inputpassword.getText().toString());
-        user.put(Constants.KEY_IMAGE, encodedImage);
-//        user.put(Constants.KEY_MIDDLE_NAME, binding.Middlename.getText().toString());
-//        user.put(Constants.KEY_FAMILY_NAME, binding.familyname.getText().toString());
-//        user.put(Constants.KEY_ADDRESS, binding.address.getText().toString());
-        user.put(Constants.MOBILE_NUMBER, binding.mobilenum.getText().toString());
-
-        mAuth.createUserWithEmailAndPassword( Constants.KEY_password,  Constants.KEY_EMAIL)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
-                        @Override
-            public void onComplete(@NonNull Task<AuthResult> v) {
-
-                    if (v.isSuccessful()){
-
-                     //   loading(true);
-//                FirebaseFirestore database = FirebaseFirestore.getInstance();
-                        mFirestore.collection(Constants.KEY_COLLECTION_USERS)
-                                .add(user)
-                                .addOnSuccessListener(documentReference ->
-
-                                {
-                                    loading(false);
-                                    prefernceManager.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
-                                    prefernceManager.putString(Constants.KEY_USER_ID, documentReference.getId());
-                                    prefernceManager.putString(Constants.KEY_FIRST_NAME, binding.username.getText().toString());
-                                    prefernceManager.putString(Constants.KEY_IMAGE, encodedImage);
-//                                    prefernceManager.putString(Constants.KEY_MIDDLE_NAME, binding.Middlename.getText().toString());
-//                                    prefernceManager.putString(Constants.KEY_FAMILY_NAME, binding.familyname.getText().toString());
-//                                    prefernceManager.putString(Constants.KEY_ADDRESS, binding.address.getText().toString());
-                                    prefernceManager.putString(Constants.MOBILE_NUMBER, binding.mobilenum.getText().toString());
-                                }
-                                )
-                .addOnFailureListener(exception -> {
-                                loading(false);
-                                showToast(exception.getMessage());
-                            });
-                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), ChatmainActivity.class);
-                        //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-
-                    } else {
-                        Toast.makeText(SignUpActivity.this,"Error",Toast.LENGTH_LONG);
-                    }
-
-//         }
-            }
-        });
-
-
-
-    }
     private String encodeImage(Bitmap bitmap) {
         int previewWidth = 150;
         int previewHeight = bitmap.getHeight() * previewWidth / bitmap.getWidth();
@@ -241,11 +123,19 @@ public class SignUpActivity extends AppCompatActivity {
         if (encodedImage == null) {
             showToast( "select profile image" );
             return false;
-        } else if (binding.username.getText().toString().trim().isEmpty()) {
+        } else if (binding.firstname.getText().toString().trim().isEmpty()) {
             showToast( "Enter First Name" );
             return false;
+        } else if (binding.Middlename.getText().toString().trim().isEmpty()) {
+            showToast( "Enter middle Name" );
+            return false;
+        } else if (binding.familyname.getText().toString().trim().isEmpty()) {
+            showToast( "Enter Family Name" );
+            return false;
+        } else if (binding.address.getText().toString().trim().isEmpty()) {
+            showToast( "Enter Address" );
+            return false;
         }
-
         else if (binding.mobilenum.getText().toString().trim().isEmpty()) {
             showToast( "Enter Address" );
             return false;
@@ -263,11 +153,13 @@ public class SignUpActivity extends AppCompatActivity {
         } else if (binding.inputpassword.getText().toString().trim().isEmpty()) {
             showToast( "Enter password" );
             return false;
-        } else if (binding.inputpassword.getText().toString().trim().isEmpty()) {
+        } else if (binding.inputconfirmpassword.getText().toString().trim().isEmpty()) {
             showToast( "confirm your password" );
             return false;
-        }
-         else {
+        } else if (!binding.inputpassword.getText().toString().equals( binding.inputconfirmpassword.getText().toString() )) {
+            showToast( "password & confirm password must be same" );
+            return false;
+        } else {
             return true;
         }
     }

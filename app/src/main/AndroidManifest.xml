@@ -14,48 +14,15 @@
         android:theme="@style/Theme.Chatapp_cloud">
         <activity
             android:name=".activites.UploadWord"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".activites.UploadBDF"
-            android:exported="false"/>
-
-
-        <activity
-            android:name=".activites.Sigin"
-            android:exported="false" />
-        <activity
-            android:name=".activites.Truset"
-            android:exported="false" />
-        <activity
-            android:name=".activites.ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activites.ResgisterActivity"
             android:exported="false" />
         <activity
             android:name=".activites.ChatmainActivity"
             android:exported="false" />
         <activity
-            android:name=".activites.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activites.AddCourse"
-            android:exported="false" />
-        <activity
             android:name=".activites.Video_Course"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activites.CheeckActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activites.Interface"
             android:exported="false" />
         <activity
             android:name=".activites.ChatActivity"
@@ -65,7 +32,7 @@
             android:exported="false" />
         <activity
             android:name=".activites.SiginActivity"
-            android:exported="true"
+            android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activites.SignUpActivity"
@@ -74,7 +41,13 @@
         <activity
             android:name=".activites.SplashScreen"
             android:exported="true"
-            android:theme="@style/SplashScreen"></activity>
+            android:theme="@style/SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".firebase.MessagingServies"
