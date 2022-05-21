@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activites.AddCourse">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:elevation="5dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="19dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:text="Add Course"
+            android:textColor="@color/text"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/course_image"
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="84dp"
+        android:ems="10"
+        android:hint="course image link"
+        android:inputType="textPersonName"
+        android:textColorHint="#C5BDBD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_name" />
+
+    <EditText
+        android:id="@+id/course_type"
+        android:layout_width="320dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="course type"
+        android:inputType="textPersonName"
+        android:textColorHint="#C5BDBD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_name" />
+
+    <EditText
+        android:id="@+id/course_name"
+        android:layout_width="319dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="course name"
+        android:inputType="textPersonName"
+        android:textColor="#A68787"
+        android:textColorHint="#C5BDBD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl" />
+
+    <Button
+        android:id="@+id/add_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="264dp"
+        android:backgroundTint="@color/primary"
+        android:text="add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

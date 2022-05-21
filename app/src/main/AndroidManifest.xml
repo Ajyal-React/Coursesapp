@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chatapp_cloud">
         <activity
+            android:name=".activites.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.AddCourse"
+            android:exported="false" />
+        <activity
             android:name=".activites.UploadWord"
             android:exported="false" />
         <activity

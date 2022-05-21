@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chatapp_cloud.R;
 import com.example.chatapp_cloud.models.pdfClass;
+import com.example.chatapp_cloud.models.wordClass;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -69,11 +70,10 @@ public class UploadWord extends AppCompatActivity {
                         Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                         while (!uriTask.isComplete());
                         Uri uri =uriTask.getResult();
-                        pdfClass pdfClass = new pdfClass(word_name.getText().toString(),uri.toString());
-                        databaseReference.child(databaseReference.push().getKey()).setValue(pdfClass);
+                        wordClass wordClass = new wordClass(word_name.getText().toString(),uri.toString());
+                        databaseReference.child(databaseReference.push().getKey()).setValue(wordClass);
                         Toast.makeText(UploadWord.this, "File Uploaded", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
-
                     }
                 }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
             @Override

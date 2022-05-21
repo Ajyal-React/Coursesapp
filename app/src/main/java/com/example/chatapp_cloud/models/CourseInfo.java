@@ -8,6 +8,9 @@ public class CourseInfo {
     private boolean join = false;
     private int isJoined = 0;
 
+    public CourseInfo(String image, String name, String type, String id, int join) {
+    }
+
 
     public int getIsJoined() {
         return isJoined;
@@ -36,7 +39,7 @@ public class CourseInfo {
         this.courseid = courseId;
     }
 
-    public CourseInfo(String courseimage, String coursename, String coursetype, String courseid, int isJoined) {
+    public CourseInfo(String courseimage, String coursename, String coursetype, String courseid) {
         this.courseimage = courseimage;
         this.coursename = coursename;
         this.coursetype = coursetype;

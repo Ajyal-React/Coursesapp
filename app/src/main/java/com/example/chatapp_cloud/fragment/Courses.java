@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chatapp_cloud.R;
+import com.example.chatapp_cloud.activites.AddCourse;
 import com.example.chatapp_cloud.adapter.CourseAdapter;
 import com.example.chatapp_cloud.models.CourseInfo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -133,14 +134,14 @@ public class Courses extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
                                                     @Override
 
-                        public void onDataChange( @NotNull DataSnapshot snapshot) {
-                     coursesList.clear();
-                  for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-               CourseInfo courseInfo = dataSnapshot.getValue(CourseInfo.class);
-                coursesList.add(courseInfo);
-               courseAdapter = new CourseAdapter(mContext,(ArrayList<CourseInfo>) coursesList);
-               recyclerView.setAdapter(courseAdapter);
-         courseAdapter.notifyDataSetChanged();
+                                                    public void onDataChange( @NotNull DataSnapshot snapshot) {
+                                                        coursesList.clear();
+                                                        for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                                            CourseInfo courseInfo = dataSnapshot.getValue(CourseInfo.class);
+                                                            coursesList.add(courseInfo);
+                                                            courseAdapter = new CourseAdapter(mContext,(ArrayList<CourseInfo>) coursesList);
+                                                            recyclerView.setAdapter(courseAdapter);
+                                                            courseAdapter.notifyDataSetChanged();
 
                                                         }
                                                     }

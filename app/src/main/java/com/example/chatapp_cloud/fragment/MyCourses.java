@@ -28,15 +28,8 @@ import java.util.ArrayList;
 
 
 public class MyCourses extends Fragment {
-     RecyclerView rv;
-     DatabaseReference databaseReference;
-     FirebaseDatabase firebaseDatabase;
-    private ArrayList<CourseInfo> coursesList;
-    private UserCourseAdapter userCourseAdapter = null;
-    CourseInfo courseInfo;
-    private Context mContext;
-
-
+    RecyclerView rv;
+    DatabaseReference databaseReference;
     public MyCourses() {
 
     }
@@ -45,11 +38,8 @@ public class MyCourses extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root =  inflater.inflate(R.layout.fragment_my_courses, container, false);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("mycourses");
+
         rv = root.findViewById(R.id.mycoursesRv);
-        mContext = container.getContext();
-        FirebaseApp.initializeApp(mContext);
 
         return root;
     }
@@ -57,42 +47,8 @@ public class MyCourses extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        getmyCourses();
-
-    }
-
-    private void getmyCourses() {
-
-        coursesList = new ArrayList<>();
-        rv.setHasFixedSize(true);
-        LinearLayoutManager manager = new LinearLayoutManager(mContext);
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        rv.setLayoutManager(manager);
-        rv.setNestedScrollingEnabled(false);
-
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("mycourses");
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                coursesList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    CourseInfo courseInfo = dataSnapshot.getValue(CourseInfo.class);
-                    coursesList.add(courseInfo);
-                    userCourseAdapter = new UserCourseAdapter(mContext, (ArrayList<CourseInfo>) coursesList);
-                    rv.setAdapter(userCourseAdapter);
-                    userCourseAdapter.notifyDataSetChanged();
-                }
-            }
-
-            @Override
-            public void onCancelled( @NotNull DatabaseError error) {
-                Toast.makeText(getContext(),"Error: "+error.getMessage(),Toast.LENGTH_SHORT).show();
-
-            }
 
 
-        });
     }
 
     @Override

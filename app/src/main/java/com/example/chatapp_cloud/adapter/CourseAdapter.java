@@ -53,7 +53,7 @@ public class CourseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @SuppressLint("NonConstantResourceId")
     @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder( @NotNull ViewGroup parent, int viewType) {
 
         switch (viewType) {
             case R.layout.fragment_courses:
@@ -109,6 +109,7 @@ public class CourseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         courseid = model.getCourseId();
         ImageView updateCourse = holder.update;
         ImageView deleteCourse = holder.delete;
+        holder.join.setVisibility(joinBtn.clic);
 
 
 
@@ -160,6 +161,9 @@ public class CourseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
     public void filterList(ArrayList<CourseInfo> filterllist) {
 
-
+        // CourseInfo lis = filterllist;
+        // below line is to notify our adapter
+        // as change in recycler view data.
+//        notifyDataSetChanged();
     }
 }
