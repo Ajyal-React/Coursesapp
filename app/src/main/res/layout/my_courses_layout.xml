@@ -50,33 +50,36 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="200dp"
                 android:layout_marginTop="90dp"
-
-                android:fontFamily="@font/abeezee"
                 android:text="Tech"
-                android:textColor="#000"
+                android:textColor="@color/text"
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/view_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/viewCourse_btn"
+                android:layout_width="98dp"
+                android:layout_height="72dp"
                 android:layout_marginStart="265dp"
-                android:layout_marginEnd="10dp"
                 android:layout_marginTop="120dp"
-                android:backgroundTint="#ffff"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="#ffffff"
                 android:elevation="2dp"
                 android:text="View Course"
-                android:textColor="@color/text"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_marginStart="340dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/ic_baseline_delete_24" />
+            <Button
+                android:id="@+id/leftCourse_btn"
+                android:layout_width="96dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="120dp"
+                android:backgroundTint="#ffffff"
+                android:elevation="2dp"
+                android:text="Left Course"
+                android:textColor="#000000"
+                android:textStyle="bold"
 
+                />
 
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
