@@ -1,7 +1,7 @@
 package com.example.chatapp_cloud.auth;
 
-import static com.yrabdelrhmn.tutorex.utilites.Constant.KEY_EMAIL;
-import static com.yrabdelrhmn.tutorex.utilites.Constant.KEY_password;
+import static com.example.chatapp_cloud.utilites.Constants.KEY_EMAIL;
+import static com.example.chatapp_cloud.utilites.Constants.KEY_password;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chatapp_cloud.R;
+import com.example.chatapp_cloud.activites.MainActivity;
 import com.example.chatapp_cloud.lecturer.HomePage;
 import com.example.chatapp_cloud.lecturer.model.LecturerModel;
 import com.example.chatapp_cloud.models.Student;
@@ -29,7 +30,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.yrabdelrhmn.tutorex.student.MainActivity;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -46,15 +46,15 @@ public class Register extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_sign_up);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         //  loginBtn = findViewById(R.id.login_btn);
-        registerBtn = findViewById(R.id.register_btn);
-        email = findViewById(R.id.editTextTextEmailAddress);
+        registerBtn = findViewById(R.id.buttonSignup);
+        email = findViewById(R.id.inputemail);
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.RGroup);
-        pass = findViewById(R.id.editTextTextPassword);
+        pass = findViewById(R.id.inputpassword);
         lecturer = findViewById(R.id.radio1);
         student = findViewById(R.id.radio2);
 
@@ -144,7 +144,7 @@ public class Register extends AppCompatActivity  {
                     public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             addDataStudent(userEmail);
-                            startActivity(new Intent(Register.this,MainActivity.class));
+                            startActivity(new Intent(Register.this, MainActivity.class));
                         }
                     }
                 });
