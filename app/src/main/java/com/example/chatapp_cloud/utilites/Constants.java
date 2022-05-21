@@ -4,18 +4,18 @@ import java.util.HashMap;
 
 public class Constants {
     public static final String KEY_COLLECTION_USERS ="users";
-    public static final String KEY_FIRST_NAME = "name";
-    public static final String KEY_MIDDLE_NAME = "middlename";
-    public static final String KEY_FAMILY_NAME = "familyname";
-    public static final String KEY_ADDRESS = "address";
+    public static String KEY_FIRST_NAME = "name";
+    public static String KEY_MIDDLE_NAME = "middlename";
+    public static String KEY_FAMILY_NAME = "familyname";
+    public static String KEY_ADDRESS = "address";
     public static final String MOBILE_NUMBER = "mobilenumber";
-    public static final String KEY_EMAIL = "email";
-    public static final String KEY_password = "password";
+    public static String KEY_EMAIL = "email";
+    public static String KEY_password = "password";
     public static final String KEY_BIRTHDATE = "birthdate";
     public static final String KEY_PREFERENCE_NAME = "chatAppPreference";
     public static final String KEY_IS_SIGNED_IN = "isSignedIn";
     public static final String KEY_USER_ID = "userid";
-    public static final String KEY_IMAGE = "image";
+    public static String KEY_IMAGE = "image";
     public static final String KEY_FCM_TOKEN= "fcmtoken";
     public static final String KEY_STUDENT ="student";
     public static final String KEY_COLLECTION_CHAT = "chat";

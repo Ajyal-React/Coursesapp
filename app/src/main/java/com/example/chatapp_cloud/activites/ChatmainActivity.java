@@ -8,9 +8,8 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
 
-
 import com.example.chatapp_cloud.adapter.RecentConversionsAdapter;
-import com.example.chatapp_cloud.databinding.ActivityMainBinding;
+import com.example.chatapp_cloud.databinding.ActivityChatmainBinding;
 import com.example.chatapp_cloud.listeners.ConversionListener;
 import com.example.chatapp_cloud.models.ChatMessage;
 import com.example.chatapp_cloud.models.Student;
@@ -29,23 +28,24 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainChating extends BaseActivity implements ConversionListener {
-    public ActivityMainBinding binding ;
-    private  prefernceManager prefernceManager;
-    private List<ChatMessage> conversations;
+public class ChatmainActivity extends  BaseActivity implements ConversionListener {
+
+    public ActivityChatmainBinding binding ;
+    prefernceManager prefernceManager;
+   private List<ChatMessage> conversations;
     private RecentConversionsAdapter conversionsAdapter;
     private FirebaseFirestore database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityChatmainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         prefernceManager = new prefernceManager(getApplicationContext());
         init();
         loadUserDetails();
         getToken();
-        setListeners();
+      setListeners();
         listenConversations();
 
     }
@@ -66,7 +66,7 @@ public class MainChating extends BaseActivity implements ConversionListener {
                 Base64.DEFAULT);
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
         binding.imageprofile.setImageBitmap(bitmap);
-}
+    }
     private void showToast(String message){
         Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
     }
@@ -104,14 +104,14 @@ public class MainChating extends BaseActivity implements ConversionListener {
                     chatMessage.dateObject = documentChange.getDocument().getDate( Constants.KEY_TIMESTAMP );
                     conversations.add( chatMessage );
                 }else  if (documentChange.getType() == DocumentChange.Type.MODIFIED){
-                    for (int i=0 ;i<conversations.size();i++){
+                    for (int i=0; i<conversations.size(); i++){
                         String senderId = documentChange.getDocument().getString( Constants.KEY_SENDER_ID );
                         String receiverId = documentChange.getDocument().getString( Constants.KEY_RECEIVER_ID );
-                  if (conversations.get( i ).senderId.equals( senderId ) &&conversations.get( i ).receverId.equals( receiverId )){
-                      conversations.get( i ).message = documentChange.getDocument().getString( Constants.KEY_LAST_MESSAGE );
-                      conversations.get( i ).dateObject =documentChange.getDocument().getDate( Constants.KEY_TIMESTAMP );
-                      break;
-                  }
+                        if (conversations.get( i ).senderId.equals( senderId ) &&conversations.get( i ).receverId.equals( receiverId )){
+                            conversations.get( i ).message = documentChange.getDocument().getString( Constants.KEY_LAST_MESSAGE );
+                            conversations.get( i ).dateObject =documentChange.getDocument().getDate( Constants.KEY_TIMESTAMP );
+                            break;
+                        }
                     }
                 }
             }
@@ -158,7 +158,7 @@ public class MainChating extends BaseActivity implements ConversionListener {
     @Override
     public void onConversionClicked(Student student) {
         Intent intent = new Intent(getApplicationContext(),ChatActivity.class);
-        intent.putExtra( Constants.KEY_STUDENT, String.valueOf( student ) );
+        intent.putExtra( Constants.KEY_STUDENT, student );
         startActivity( intent );
     }
 }

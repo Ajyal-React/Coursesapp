@@ -70,8 +70,8 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
-                android:layout_marginStart="340dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="340dp"
                 android:layout_marginTop="10dp"
                 app:srcCompat="@drawable/ic_baseline_delete_24" />
 

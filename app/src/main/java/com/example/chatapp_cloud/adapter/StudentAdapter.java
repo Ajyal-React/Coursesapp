@@ -16,8 +16,10 @@ import com.example.chatapp_cloud.models.Student;
 import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.studentViewHolder> {
+
     private final List<Student> students;
     private final StudentListener studentListener;
+
     public StudentAdapter(List<Student> students,StudentListener studentListener) {
         this.studentListener=studentListener;
         this.students = students;

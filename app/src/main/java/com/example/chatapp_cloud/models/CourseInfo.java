@@ -36,7 +36,7 @@ public class CourseInfo {
         this.courseid = courseId;
     }
 
-    public CourseInfo(String courseimage, String coursename, String coursetype, String courseid) {
+    public CourseInfo(String courseimage, String coursename, String coursetype, String courseid, int isJoined) {
         this.courseimage = courseimage;
         this.coursename = coursename;
         this.coursetype = coursetype;

@@ -28,6 +28,7 @@ public class prefernceManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(Key,value);
         editor.apply();
+//        Getcurrentuser.getuid;
     }
     public String getString(String key){
         return sharedPreferences.getString(key,null);

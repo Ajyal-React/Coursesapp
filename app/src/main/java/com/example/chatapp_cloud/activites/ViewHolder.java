@@ -40,14 +40,14 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         try {
 
             BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter.Builder(ctx).build();
-          //  DefaultTrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
-           // exoPlayer = (SimpleExoPlayer) ExoPlayerFactory.newSimpleInstance(ctx);
+//            DefaultTrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
+//        exoPlayer = (SimpleExoPlayer) ExoPlayerFactory.newSimpleInstance(ctx);
             Uri video = Uri.parse(url);
             DefaultHttpDataSource dataSource = new DefaultHttpDataSource("video");
             ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
-           // MediaSource mediaSource = new ExtractorMediaSource(video,dataSource,extractorsFactory,null);
+//            MediaSource mediaSource = new ExtractorMediaSource(video,dataSource,extractorsFactory,null);
             playerView.setPlayer(exoPlayer);
-          //  exoPlayer.prepare(mediaSource);
+//            exoPlayer.prepare(mediaSource);
             exoPlayer.setPlayWhenReady(false);
 
         } catch (Exception e) {

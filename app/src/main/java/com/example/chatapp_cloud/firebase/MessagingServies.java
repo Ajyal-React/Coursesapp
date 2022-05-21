@@ -22,6 +22,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import java.util.Random;
 
 public class MessagingServies extends FirebaseMessagingService {
+
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
     }

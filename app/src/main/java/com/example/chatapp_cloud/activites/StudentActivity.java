@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.chatapp_cloud.adapter.StudentAdapter;
-import com.example.chatapp_cloud.databinding.ActivityUserBinding;
+import com.example.chatapp_cloud.databinding.ActivityStudentBinding;
 import com.example.chatapp_cloud.listeners.StudentListener;
 import com.example.chatapp_cloud.models.Student;
 import com.example.chatapp_cloud.utilites.Constants;
@@ -18,17 +18,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentActivity extends BaseActivity implements StudentListener {
-    private ActivityUserBinding binding;
+    private ActivityStudentBinding binding;
     private prefernceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        binding =ActivityUserBinding.inflate(getLayoutInflater());
+        binding =ActivityStudentBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot() );
         preferenceManager = new prefernceManager( getApplicationContext() );
-        getUsers();
         setListeners();
+        getUsers();
     }
     private void loading(Boolean isLoading){
         if(isLoading){
@@ -49,7 +49,7 @@ public class StudentActivity extends BaseActivity implements StudentListener {
                 .addOnCompleteListener( task -> {
                     loading( false );
                     String currentUserId = preferenceManager.getString( Constants.KEY_USER_ID );
-                    if(task.isSuccessful() && task.getResult()!= null){
+                    if(task.isSuccessful() && task.getResult() != null){
                         List<Student> students = new ArrayList<>();
                         for(QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()){
                             if(currentUserId.equals( queryDocumentSnapshot.getId() )){

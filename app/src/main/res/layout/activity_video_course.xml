@@ -1,19 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#000000"
-    tools:context=".activites.Video_Course">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
-    <androidx.recyclerview.widget.RecyclerView
+
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerview_video">
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </androidx.recyclerview.widget.RecyclerView>
+            <TextView
+                android:id="@+id/vtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="andriod : lecture1"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#ffff"
+                android:paddingStart="3dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="this lecture take about varible in java"
+                android:textSize="@dimen/_15ssp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+/>
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/exoplayerView1"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_margin="3dp"
+                app:resize_mode="fill"
+                app:use_controller="true"
+                android:layout_gravity="center"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                >
+                <Button
+                    android:id="@+id/btnassm1.docx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Assignment.docx "
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:backgroundTint="@color/primary_dark"
+                    android:textColorHint="@color/text"
+                    />
+
+                <Button
+                    android:id="@+id/btnassm1.pdf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:backgroundTint="@color/primary_dark"
+                    android:hint="Assignment.pdf "
+                    android:padding="@dimen/_10sdp"
+                    android:textColorHint="@color/text" />
+            </LinearLayout>
 
 
-</LinearLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/vtitle2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="andriod : lecture2"-->
+<!--                android:textSize="25sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="#ffff"-->
+<!--                android:paddingStart="3dp"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="this lecture take about varible in java"-->
+<!--                android:textSize="@dimen/_15ssp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:textStyle="bold"-->
+<!--                />-->
+<!--            <com.google.android.exoplayer2.ui.PlayerView-->
+<!--                android:id="@+id/exoplayerView2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="220dp"-->
+<!--                android:layout_margin="3dp"-->
+<!--                app:resize_mode="fill"-->
+<!--                app:use_controller="true"-->
+<!--                android:layout_gravity="center"/>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btnassm2.docx"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Assignment.docx "-->
+<!--                android:layout_marginLeft="@dimen/_10sdp"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:backgroundTint="@color/primary_dark"-->
+<!--                android:textColorHint="@color/text"-->
+<!--                />-->
+<!--            <Button-->
+<!--                android:id="@+id/btnassm2.pdf"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_10sdp"-->
+<!--                android:backgroundTint="@color/primary_dark"-->
+<!--                android:hint="Assignment.pdf "-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:textColorHint="@color/text"-->
+<!--                />-->
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>

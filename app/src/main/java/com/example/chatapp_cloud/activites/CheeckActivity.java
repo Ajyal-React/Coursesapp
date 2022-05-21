@@ -1,8 +1,8 @@
 package com.example.chatapp_cloud.activites;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,12 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chatapp_cloud.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.List;
 
 public class CheeckActivity extends AppCompatActivity {
     EditText passcheeck;
@@ -24,8 +28,10 @@ public class CheeckActivity extends AppCompatActivity {
     String Stpass;
   //  private CollectionReference database;
     DocumentSnapshot documentSnapshot;
-    FirebaseFirestore mydb;
+    FirebaseFirestore firestore;
     DatabaseReference reference;
+    FirebaseAuth firebaseAuth;
+    String userid;
 
 
     @Override
@@ -34,71 +40,65 @@ public class CheeckActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cheeck);
        passcheeck = findViewById(R.id.passcheeck);
        butonCheeck = findViewById(R.id.butonCheeck);
-//       database=FirebaseFirestore.getInstance().collection("admin");
-//       database.getId();
       Stpass= passcheeck.getText().toString();
-//       butonCheeck.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View view) {
-//            // CollectionReference documentReference = mydb.collection("adin");
-//               mydb.collection("admin").document("authcode");
-//
-//
-//               DocumentReference docRef= (DocumentReference) mydb.document("authcode");
-//               docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                   @Override
-//                   public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                       if (task.isSuccessful()){
-//                           DocumentSnapshot documant=task.getResult();
-//                           if (documant!= null){
-//                               String value = docRef.getId();
-//                 if (Stpass.equals(value)){
-//                     startActivity(new Intent(getApplicationContext(),SignUpActivity.class));
-//                               }else {
-//                     Toast.makeText(CheeckActivity.this, "Error in Cheeck code", Toast.LENGTH_SHORT).show();
-//                 }
-//                           }else{
-//                               Log.d("LOGER","get felied ");
-//                           }
-//                       }
-//                   }
-//               });
-//           }
-//       });
-        DocumentReference docRef = mydb.collection("admin").document("authcode");
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-           @Override
-           public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-               if (task.isSuccessful()) {
-                   DocumentSnapshot documant = task.getResult();
-                   if (documant != null) {
-                       String value = docRef.getId();
-                       if (Stpass.equals(value)) {
-                           startActivity(new Intent(getApplicationContext(), SignUpActivity.class));
-                       } else {
-                           Toast.makeText(CheeckActivity.this, "Error in Cheeck code", Toast.LENGTH_SHORT).show();
-                       }
-                   } else {
-                       Log.d("LOGER", "get felied ");
-                   }
-               }
-           }
-      });
+     // String pass= "4444";
+//      firebaseAuth = FirebaseAuth.getInstance();
+      firestore = FirebaseFirestore.getInstance();
+      CollectionReference db= firestore.collection("admins");
+      String code = FirebaseFirestore.getInstance()
+              .collection("admins")
+              .whereEqualTo("code","4444")
+              .get().toString();
+      //userid = firebaseAuth.getCurrentUser().getUid();
+        butonCheeck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                if (Stpass.equals(code)){
+                    FirebaseFirestore.getInstance()
+                            .collection("admins")
+                            .whereEqualTo("code","4444")
+                            .get()
+                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                @Override
+                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                    Log.d("tt", "we are geeting data");
+                                    List<DocumentSnapshot> snapshots = queryDocumentSnapshots.getDocuments();
+                                    for (DocumentSnapshot snapshot : snapshots) {
+                                        Log.d("tt", "onSuuceful" + snapshot.getData().toString());
+                                    }
 
-//        mydb.collection("admin")
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            for (QueryDocumentSnapshot document : task.getResult()) {
-//                                Log.d(TAG, document.getId() + " => " + document.getData());
-//                            }
-//                        } else {
-//                            Log.d(TAG, "Error getting documents: ", task.getException());
-//                        }
-//                    }
-//                });
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(CheeckActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
 
-    }
-}
+//            }
+    });
+    }}
+
+
+//FirebaseFirestore.getInstance()
+//        .collection("admins")
+//        .get()
+//        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//@Override
+//public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//        Log.d("tt", "we are geeting data");
+//        List<DocumentSnapshot> snapshots = queryDocumentSnapshots.getDocuments();
+//        for (DocumentSnapshot snapshot : snapshots) {
+//        Log.d("tt", "onSuuceful" + snapshot.getData().toString());
+//        }
+//
+//        }
+//        })
+//        .addOnFailureListener(new OnFailureListener() {
+//@Override
+//public void onFailure(@NonNull Exception e) {
+//        Toast.makeText(CheeckActivity.this, "Error", Toast.LENGTH_SHORT).show();
+//        }
+//        });

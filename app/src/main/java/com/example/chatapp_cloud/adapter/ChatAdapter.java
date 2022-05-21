@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.chatapp_cloud.activites.ChatActivity;
 import com.example.chatapp_cloud.databinding.ItemContainerReceivedMessageBinding;
 import com.example.chatapp_cloud.databinding.ItemContainerSentMessageBinding;
 import com.example.chatapp_cloud.models.ChatMessage;
@@ -16,13 +15,13 @@ import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final List<ChatMessage> chatMessages;
-    private  Bitmap receiverProfileImage;
+    private final Bitmap receiverProfileImage;
     private final String senderId;
     public static final int VIEW_TYPE_SENT = 1;
     public static final int VIEW_TYPE_RECEIVDE = 2;
 
     public void setReceiverProfileImage(Bitmap bitmap){
-        receiverProfileImage = bitmap;
+//        receiverProfileImage = bitmap;
     }
 
     public ChatAdapter(List<ChatMessage> chatMessages, Bitmap receiverProfileImage, String senderId) {
@@ -30,6 +29,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.receiverProfileImage = receiverProfileImage;
         this.senderId = senderId;
     }
+
 //    public ChatAdapter(Bitmap receiverProfileImage, List<ChatMessage> chatMessages, String senderId, ChatActivity chatActivity) {
 //        this.receiverProfileImage = receiverProfileImage;
 //        this.chatMessages = chatMessages;

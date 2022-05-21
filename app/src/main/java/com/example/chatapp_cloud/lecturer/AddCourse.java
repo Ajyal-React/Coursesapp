@@ -1,4 +1,4 @@
-package com.example.chatapp_cloud.activites;
+package com.example.chatapp_cloud.lecturer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.chatapp_cloud.R;
-import com.example.chatapp_cloud.adapter.CourseAdapter;
+import com.example.chatapp_cloud.adapter.UserCourseAdapter;
 import com.example.chatapp_cloud.models.CourseInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,14 +33,12 @@ public class AddCourse extends AppCompatActivity {
     private Fragment mFragment;
     //RecyclerView recyclerView;
     private ArrayList<CourseInfo> coursesList;
-    private CourseAdapter courseAdapter = null;
-
-
+    private UserCourseAdapter userCourseAdapter = null;
+    // MyFirebaseMessagingService service = new MyFirebaseMessagingService();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_course);
-
         courseName = findViewById(R.id.course_name);
         courseType = findViewById(R.id.course_type);
         courseImage = findViewById(R.id.course_image);
@@ -58,22 +56,24 @@ public class AddCourse extends AppCompatActivity {
                 String coursename = courseName.getText().toString();
                 String coursetype = courseType.getText().toString();
                 String courseimage = courseImage.getText().toString();
-                courseid = coursename;
-                CourseInfo courseInfo = new CourseInfo(courseimage,coursename,coursetype,courseid);
+
+                int isjoined = 0;
+                  courseid = coursename;
+                CourseInfo courseInfo = new CourseInfo(courseimage,coursename,coursetype,courseid,isjoined);
                 courseInfo.setCourseimage(courseimage);
                 courseInfo.setCourseName(coursename);
                 courseInfo.setCourseType(coursetype);
-                DatabaseReference mCourse = databaseReference.child("courses").child(courseid);
+                courseInfo.setIsJoined(isjoined);
+            //    DatabaseReference mCourse = databaseReference.child("courses").child(courseid);
 
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NotNull DataSnapshot snapshot)
-                    {
-                        databaseReference.child(courseid).setValue(courseInfo);
+                    public void onDataChange(@NotNull DataSnapshot snapshot) {
+                    databaseReference.child(courseid).setValue(courseInfo);
+                      
+                       Toast.makeText(AddCourse.this, "Added!", Toast.LENGTH_SHORT).show();
 
-                        Toast.makeText(AddCourse.this, "Course Added Successfully!", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(AddCourse.this, ChatmainActivity.class));
-
+                        startActivity(new Intent(AddCourse.this,HomePage.class));
                     }
 
                     @Override
@@ -88,4 +88,6 @@ public class AddCourse extends AppCompatActivity {
 
 
     }
+
+
 }

@@ -13,7 +13,6 @@ import com.example.chatapp_cloud.databinding.ItemContainerRecentConversionBindin
 import com.example.chatapp_cloud.listeners.ConversionListener;
 import com.example.chatapp_cloud.models.ChatMessage;
 import com.example.chatapp_cloud.models.Student;
-import com.google.firebase.firestore.auth.User;
 
 import java.util.List;
 

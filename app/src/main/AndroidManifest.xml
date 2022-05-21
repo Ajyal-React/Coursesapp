@@ -3,6 +3,7 @@
     package="com.example.chatapp_cloud">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chatapp_cloud">
         <activity
+            android:name=".activites.UploadWord"
+            android:exported="false"/>
+
+        <activity
+            android:name=".activites.UploadBDF"
+            android:exported="false"/>
+
+
+        <activity
+            android:name=".activites.Sigin"
+            android:exported="false" />
+        <activity
+            android:name=".activites.Truset"
+            android:exported="false" />
+        <activity
+            android:name=".activites.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.ResgisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.ChatmainActivity"
+            android:exported="false" />
+        <activity
             android:name=".activites.MainActivity"
             android:exported="false" />
         <activity
@@ -19,7 +44,13 @@
             android:exported="false" />
         <activity
             android:name=".activites.Video_Course"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activites.CheeckActivity"
             android:exported="false" />
@@ -43,16 +74,7 @@
         <activity
             android:name=".activites.SplashScreen"
             android:exported="true"
-            android:theme="@style/SplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activites.MainChating"
-            android:exported="false" />
+            android:theme="@style/SplashScreen"></activity>
 
         <service
             android:name=".firebase.MessagingServies"
