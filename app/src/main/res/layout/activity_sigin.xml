@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:layout_gravity="center"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
@@ -20,7 +21,7 @@
             android:layout_marginTop="@dimen/_40sdp"
             android:text="welcome Back"
             android:textColor="@color/primary_text"
-            android:textSize="@dimen/_20ssp"
+            android:textSize="@dimen/_25ssp"
             android:textStyle="bold"/>
 
         <EditText

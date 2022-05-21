@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/courses_lecturer"
+        android:icon="@drawable/ic_baseline_ondemand_video_24"
+        android:title="Courses"
+        />
+    <item
+        android:id="@+id/analytics"
+        android:icon="@drawable/ic_baseline_analytics_24"
+        android:title="Analytics" />
+
+
+
+    <item
+        android:id="@+id/lecturer_profile"
+        android:icon="@drawable/person"
+        android:title="Profile"/>
+
+</menu>

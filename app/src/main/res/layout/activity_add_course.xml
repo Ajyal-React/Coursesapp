@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activites.AddCourse">
+    >
 
     <RelativeLayout
         android:id="@+id/rl"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:elevation="5dp">
+        android:layout_marginTop="48dp"
+        android:elevation="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <TextView
@@ -20,11 +21,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginStart="135dp"
+            android:layout_marginTop="33dp"
             android:fontFamily="sans-serif-condensed-light"
             android:text="Add Course"
-            android:textColor="@color/text"
+            android:textColor="@color/primary_text"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -38,8 +39,12 @@
         android:layout_marginTop="84dp"
         android:ems="10"
         android:hint="course image link"
-        android:inputType="textPersonName"
-        android:textColorHint="#C5BDBD"
+        android:paddingStart="15dp"
+        android:textColor="@color/text"
+        android:background="@drawable/background_input"
+        android:backgroundTint="@color/secondary_text"
+        android:textColorHint="#7A595252"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,9 +56,14 @@
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:textColorHint="#7A595252"
         android:hint="course type"
-        android:inputType="textPersonName"
-        android:textColorHint="#C5BDBD"
+        android:textAlignment="center"
+        android:paddingStart="15dp"
+
+        android:textColor="@color/text"
+        android:background="@drawable/background_input"
+        android:backgroundTint="@color/secondary_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,10 +75,14 @@
         android:layout_height="45dp"
         android:layout_marginTop="60dp"
         android:ems="10"
+        android:textAlignment="center"
         android:hint="course name"
+        android:paddingStart="15dp"
         android:inputType="textPersonName"
-        android:textColor="#A68787"
-        android:textColorHint="#C5BDBD"
+        android:textColor="@color/text"
+        android:background="@drawable/background_input"
+        android:backgroundTint="@color/secondary_text"
+        android:textColorHint="#7A595252"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,11 +90,11 @@
 
     <Button
         android:id="@+id/add_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="264dp"
-        android:backgroundTint="@color/primary"
+        android:layout_width="98dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="280dp"
+        android:backgroundTint="@color/primary_text"
         android:text="add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
