@@ -11,7 +11,7 @@ import com.example.chatapp_cloud.R;
 import com.example.chatapp_cloud.fragment.Chat;
 import com.example.chatapp_cloud.fragment.Courses;
 import com.example.chatapp_cloud.fragment.MyCourses;
-import com.example.chatapp_cloud.fragment.Profile;
+import com.example.chatapp_cloud.fragment.Profile2;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.annotations.NotNull;
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     Courses courses = new Courses();
     MyCourses myCourses = new MyCourses();
     Chat chat = new Chat();
-    Profile profile = new Profile();
+    Profile2 profile = new Profile2();
 
     @SuppressLint("NonConstantResourceId")
     @Override

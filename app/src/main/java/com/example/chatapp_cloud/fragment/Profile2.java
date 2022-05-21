@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.chatapp_cloud.R;
 
-public class Profile extends Fragment {
+public class Profile2 extends Fragment {
 
-    public Profile() {
+    public Profile2() {
         // Required empty public constructor
     }
 

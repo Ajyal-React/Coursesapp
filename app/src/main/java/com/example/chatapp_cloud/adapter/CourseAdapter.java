@@ -109,7 +109,7 @@ public class CourseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         courseid = model.getCourseId();
         ImageView updateCourse = holder.update;
         ImageView deleteCourse = holder.delete;
-        holder.join.setVisibility(joinBtn.clic);
+//        holder.join.setVisibility(joinBtn.clic);
 
 
 
